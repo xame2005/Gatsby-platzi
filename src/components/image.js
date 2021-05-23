@@ -1,11 +1,10 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
 function Image({ name }) {
   return (
-    <StaticQuery
-      query
+    <query
       GET_IMAGE={graphql`
         query {
           icon: file(relativePath: { eq: "icon.png" }) {
