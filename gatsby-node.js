@@ -16,6 +16,7 @@ exports.createPages = async ({ graphql, actions }) => {
               metadata {
                 description
                 img
+                wear
               }
             }
           }

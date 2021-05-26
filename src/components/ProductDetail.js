@@ -4,7 +4,6 @@ import SEO from "../components/seo"
 import {
   Tag,
   SizeButton,
-  QtyButton,
   SizeSelect,
   Button,
   StyledProductDetail,

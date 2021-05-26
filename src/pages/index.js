@@ -22,6 +22,7 @@ export const query = graphql`
             metadata {
               img
               description
+              wear
             }
           }
         }
