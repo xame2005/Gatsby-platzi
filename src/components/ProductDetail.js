@@ -1,5 +1,6 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import priceFormat from "../utils/priceFormat"
+import { CartContext } from "../context"
 import SEO from "./seo"
 import Stars from "./Stars"
 import {
@@ -19,6 +20,20 @@ export default function ProductDetail({
   const formatprice = priceFormat(unit_amount)
   const [size, setSize] = useState(2)
   const [qty, setQty] = useState(1)
+  const { cart, addToCart } = useContext(CartContext)
+
+  const handleSubmit = () => {
+    let onCart = false
+
+    cart.map(item => {
+      if (item.id == id) {
+        onCart = true
+        item.qty += qty
+      }
+    })
+
+    if (!onCart) addToCart({ unit_amount, id, name, metadata, qty })
+  }
 
   return (
     <StyledProductDetail>
@@ -46,7 +61,7 @@ export default function ProductDetail({
           <input type="text" disabled value={qty}></input>
           <Button onClick={() => setQty(qty + 1)}>+</Button>
         </QtySelect>
-        <Button>Agregar al carrito</Button>
+        <Button onClick={handleSubmit}>Agregar al carrito</Button>
       </div>
     </StyledProductDetail>
   )

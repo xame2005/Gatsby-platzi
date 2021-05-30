@@ -11,8 +11,8 @@ const Header = () => {
       <Link to="/">
         <span>
           <img src="https://i.postimg.cc/6q3pg48v/Logo.png" alt="logo" />
-          {cart.length}
         </span>
+        {cart.length}
       </Link>
       <nav>
         <ul>
@@ -23,12 +23,13 @@ const Header = () => {
             <a href="https://www.gatsbyjs.com/docs/">Gatsbyjs.com</a>
           </MenuItem>
           <MenuItem>
-            <Link to="/cart0">
+            <Link to="/cart">
               <span>
                 <img
                   src="https://i.postimg.cc/L6wpMxLt/cart.png"
                   alt="Shopping Cart Logo"
                 />
+                {cart.length}
               </span>
             </Link>
           </MenuItem>
