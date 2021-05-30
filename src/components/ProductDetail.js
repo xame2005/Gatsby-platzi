@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import priceFormat from "../utils/priceFormat"
-import SEO from "../components/seo"
+import SEO from "./seo"
+import Stars from "./Stars"
 import {
   Tag,
   SizeButton,
@@ -27,6 +28,10 @@ export default function ProductDetail({
         <Tag>Popular</Tag>
         <h2>{name}</h2>
         <b>USD {formatprice}</b>
+        <Stars />
+        {metadata.wear && <h3>Color: Azul</h3>}
+        {<small>{metadata.description}</small>}
+
         {metadata.wear && (
           <SizeSelect selected={size}>
             <SizeButton onClick={() => setSize(1)}>XS</SizeButton>
@@ -41,6 +46,7 @@ export default function ProductDetail({
           <input type="text" disabled value={qty}></input>
           <Button onClick={() => setQty(qty + 1)}>+</Button>
         </QtySelect>
+        <Button>Agregar al carrito</Button>
       </div>
     </StyledProductDetail>
   )
