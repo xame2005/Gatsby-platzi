@@ -10,7 +10,10 @@ export default function Cart() {
 
   const getTotal = () => {
     setTotal(
-      cart.reduce((acc, current) => acc + current.total_amount * current.qty, 0)
+      cart.reduce(
+        (acc, current) => acc + current.unit_amount * current.quantity,
+        0
+      )
     )
   }
 
@@ -34,7 +37,7 @@ export default function Cart() {
               </td>
               <td>MXN {priceFormat(swag.unit_amount)}</td>
               <td>{swag.quantity}</td>
-              <td>{priceFormat(swag.qty * swag.unit_amount)}</td>
+              <td>{priceFormat(swag.quantity * swag.unit_amount)}</td>
             </tr>
           ))}
         </tbody>

@@ -20,19 +20,10 @@ export default function ProductDetail({
   const formatprice = priceFormat(unit_amount)
   const [size, setSize] = useState(2)
   const [qty, setQty] = useState(1)
-  const { cart, addToCart } = useContext(CartContext)
+  const { addToCart } = useContext(CartContext)
 
   const handleSubmit = () => {
-    let onCart = false
-
-    cart.map(item => {
-      if (item.id == id) {
-        onCart = true
-        item.qty += qty
-      }
-    })
-
-    if (!onCart) addToCart({ unit_amount, id, name, metadata, qty })
+    addToCart({ unit_amount, name, metadata, quantity: qty, id })
   }
 
   return (
